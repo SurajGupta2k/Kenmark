@@ -3,6 +3,26 @@
 ## Project Overview
 A full-stack notes application built with React and Node.js, featuring authentication, role-based access, and advanced note management. This document outlines our development journey, challenges faced, and solutions implemented.
 
+## Live Demo
+- Frontend: [https://kenmark-suraj.vercel.app/login](https://kenmark-suraj.vercel.app/login)
+- Backend API: [https://kenmark1.onrender.com](https://kenmark1.onrender.com)
+
+### Demo Credentials
+```bash
+Email: admin@gmail.com
+Password: Admin@123
+```
+
+### Features
+- 🔐 User Authentication (JWT + Google OAuth)
+- 👥 Role-Based Access Control (Admin/User)
+- 📝 Advanced Note Management
+- 🏷️ Tags and Categories
+- 🎨 Color Customization
+- 🌓 Dark Mode Support
+- 📱 Responsive Design
+- 🔍 Advanced Search & Filtering
+
 ## Phase 1: Project Foundation & Authentication
 ### Initial Setup 
 - Set up the project structure for both frontend and backend
