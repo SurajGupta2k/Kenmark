@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import { FiUsers, FiUserCheck, FiUserX, FiSearch } from 'react-icons/fi';
+import config from '../config/config';
 
 // Admin dashboard component for managing users
 const AdminDashboard = () => {
@@ -27,7 +28,7 @@ const AdminDashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/admin/users', {
+      const response = await axios.get(`${config.apiUrl}/api/admin/users`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
@@ -45,7 +46,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:5000/api/admin/users/${userId}/role`,
+        `${config.apiUrl}/api/admin/users/${userId}/role`,
         { role: newRole },
         { headers: { Authorization: `Bearer ${token}` }}
       );

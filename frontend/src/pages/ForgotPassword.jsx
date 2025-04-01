@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useToast } from '../context/ToastContext';
 import axios from 'axios';
 import { isValidEmail } from '../utils/validation';
+import config from '../config/config';
 
 // Component for handling password reset requests
 const ForgotPassword = () => {
@@ -25,7 +26,7 @@ const ForgotPassword = () => {
     setIsSubmitting(true);
     try {
       // Send password reset request to backend
-      await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      await axios.post(`${config.apiUrl}/api/auth/forgot-password`, { email });
       showToast('Password reset instructions sent to your email', 'success');
     } catch (err) {
       showToast(err.response?.data?.message || 'Failed to process request', 'error');
