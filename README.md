@@ -93,6 +93,130 @@ A full-stack notes application built with React and Node.js, featuring authentic
 - Created user guides
 - Documented setup process
 
+## API Endpoints Documentation
+
+### Authentication Endpoints
+```bash
+# User Registration
+POST /api/auth/signup
+Content-Type: application/json
+{
+    "username": "string",
+    "email": "string",
+    "password": "string"
+}
+
+# User Login
+POST /api/auth/login
+Content-Type: application/json
+{
+    "email": "string",
+    "password": "string"
+}
+
+# Google OAuth Login
+GET /api/auth/google
+
+# Google OAuth Callback
+GET /api/auth/google/callback
+
+# Get Current User Profile
+GET /api/auth/me
+Authorization: Bearer <token>
+
+# Password Reset Request
+POST /api/auth/forgot-password
+Content-Type: application/json
+{
+    "email": "string"
+}
+```
+
+### Notes Endpoints
+```bash
+# Get All Notes
+GET /api/notes
+Authorization: Bearer <token>
+
+# Get Single Note
+GET /api/notes/:id
+Authorization: Bearer <token>
+
+# Create Note
+POST /api/notes
+Authorization: Bearer <token>
+Content-Type: application/json
+{
+    "title": "string",
+    "content": "string",
+    "tags": ["string"],
+    "color": "string"
+}
+
+# Update Note
+PUT /api/notes/:id
+Authorization: Bearer <token>
+Content-Type: application/json
+{
+    "title": "string",
+    "content": "string",
+    "tags": ["string"],
+    "color": "string"
+}
+
+# Delete Note
+DELETE /api/notes/:id
+Authorization: Bearer <token>
+```
+
+### Admin Endpoints
+```bash
+# Get All Users (Admin Only)
+GET /api/admin/users
+Authorization: Bearer <token>
+
+# Update User Role (Admin Only)
+PATCH /api/admin/users/:userId/role
+Authorization: Bearer <token>
+Content-Type: application/json
+{
+    "role": "user" | "admin"
+}
+```
+
+### Response Formats
+
+#### Success Response
+```json
+{
+    "data": {}, // Response data
+    "message": "Success message"
+}
+```
+
+#### Error Response
+```json
+{
+    "message": "Error message",
+    "errors": [] // Validation errors if any
+}
+```
+
+### Authentication
+All protected endpoints require a JWT token in the Authorization header:
+```
+Authorization: Bearer <your_jwt_token>
+```
+
+### Status Codes
+- 200: Success
+- 201: Created
+- 400: Bad Request
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not Found
+- 500: Server Error
+
 ## Current Features
 ### Authentication & Authorization
 - User authentication (signup, login, JWT)
