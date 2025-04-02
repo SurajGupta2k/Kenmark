@@ -1,9 +1,10 @@
 // Import required dependencies
-const express = require('express');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
+import Note from '../models/Note.js';
+import auth from '../middleware/auth.js';
+
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
-const Note = require('../models/Note');
-const auth = require('../middleware/auth');
 
 // Validation rules for note creation/updates
 const validateNote = [
@@ -111,4 +112,4 @@ router.delete('/:id', auth, async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router; 

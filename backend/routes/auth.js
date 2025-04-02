@@ -1,12 +1,13 @@
 // Import required dependencies
-const express = require('express');
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import { body, validationResult } from 'express-validator';
+import User from '../models/User.js';
+import auth from '../middleware/auth.js';
+import crypto from 'crypto';
+import passport from 'passport';
+
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const { body, validationResult } = require('express-validator');
-const User = require('../models/User');
-const auth = require('../middleware/auth');
-const crypto = require('crypto');
-const passport = require('passport');
 
 // Validation rules for signup and login
 const validateSignup = [
@@ -193,4 +194,4 @@ router.post('/forgot-password',
     }
 });
 
-module.exports = router; 
+export default router; 

@@ -1,6 +1,6 @@
 // Required dependencies for database modeling and password hashing
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 // Define user schema with validation rules
 const userSchema = new mongoose.Schema({
@@ -63,4 +63,4 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
 const User = mongoose.model('User', userSchema);
 
 // Export the User model
-module.exports = User; 
+export default User; 

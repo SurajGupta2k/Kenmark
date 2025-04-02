@@ -1,9 +1,10 @@
 // Import required dependencies
-const express = require('express');
+import express from 'express';
+import auth from '../middleware/auth.js';
+import requireRole from '../middleware/roleAuth.js';
+import User from '../models/User.js';
+
 const router = express.Router();
-const auth = require('../middleware/auth');
-const requireRole = require('../middleware/roleAuth');
-const User = require('../models/User');
 
 // Get all users (admin only)
 // Returns list of all users with passwords excluded
@@ -44,4 +45,4 @@ router.patch('/users/:userId/role', auth, requireRole(['admin']), async (req, re
   }
 });
 
-module.exports = router; 
+export default router; 

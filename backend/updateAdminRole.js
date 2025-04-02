@@ -1,7 +1,7 @@
 // Script to update the role of a specific user to admin
 // Used for initial admin user setup
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 // Load environment variables
 dotenv.config();
@@ -29,4 +29,5 @@ const updateAdminRole = async () => {
   }
 };
 
+// Execute the function
 updateAdminRole();

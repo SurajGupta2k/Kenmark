@@ -1,14 +1,14 @@
 // Import required dependencies
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const passport = require('passport');
-const session = require('express-session');
-const authRoutes = require('./routes/auth');
-const notesRoutes = require('./routes/notes');
-const adminRoutes = require('./routes/admin');
-const { errorHandler } = require('./middleware/errorHandler');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import passport from 'passport';
+import session from 'express-session';
+import authRoutes from './routes/auth.js';
+import notesRoutes from './routes/notes.js';
+import adminRoutes from './routes/admin.js';
+import { errorHandler } from './middleware/errorHandler.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -48,7 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Configure Passport authentication strategies
-require('./config/passport');
+import './config/passport.js';
 
 // Connect to MongoDB database
 mongoose.connect(process.env.MONGODB_URI)

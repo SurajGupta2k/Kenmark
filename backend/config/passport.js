@@ -1,7 +1,7 @@
 // Required dependencies for Google OAuth authentication
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const User = require('../models/User');
+import passport from 'passport';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import User from '../models/User.js';
 
 // Configure Google OAuth Strategy
 passport.use(
@@ -54,4 +54,4 @@ passport.deserializeUser(async (id, done) => {
 });
 
 // Export configured passport
-module.exports = passport; 
+export default passport; 

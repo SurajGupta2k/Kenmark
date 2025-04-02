@@ -1,5 +1,5 @@
 // Import mongoose for database modeling
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Define the note schema with title, content, user reference, tags and color
 const noteSchema = new mongoose.Schema({
@@ -38,4 +38,4 @@ noteSchema.index({ user: 1, createdAt: -1 });
 const Note = mongoose.model('Note', noteSchema);
 
 // Export the Note model
-module.exports = Note; 
+export default Note; 
